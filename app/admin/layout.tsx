@@ -1,0 +1,10 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '管理后台 | 数字藏品系统',
+  description: '数字藏品系统的本地运营管理后台',
+};
+
+export default function AdminLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return children;
+}

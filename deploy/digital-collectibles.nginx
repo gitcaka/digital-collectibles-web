@@ -1,0 +1,47 @@
+# 数字藏品系统 —— 独立入口 8088（与服务器上 fun-winter 的 80/443 完全隔离）。
+# 拓扑：页面/SSR = node standalone(127.0.0.1:8787)，/api = php -S(127.0.0.1:8789)，/media = 磁盘目录。
+server {
+    listen 8088;
+    listen [::]:8088;
+    server_name _;
+    absolute_redirect off;
+
+    client_max_body_size 16m;
+
+    # 上传藏品素材（PHP 落盘 COLLECTIBLES_MEDIA_DIR=/var/lib/digital-collectibles/media/collections，
+    # 独立于代码树，发布/回滚不覆盖；nginx 最长前缀优先命中本 location）
+    location ^~ /media/collections/ {
+        alias /var/lib/digital-collectibles/media/collections/;
+        expires 7d;
+        add_header Cache-Control "public";
+        try_files $uri =404;
+    }
+
+    # 其余静态媒体（banner、change.gif 等随代码包发布，只读）
+    location ^~ /media/ {
+        alias /var/www/digital-collectibles/current/public/media/;
+        expires 7d;
+        add_header Cache-Control "public";
+        try_files $uri =404;
+    }
+
+    # PHP REST API
+    location ^~ /api/ {
+        proxy_pass http://127.0.0.1:8789;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # 页面与静态资源（vinext standalone SSR）
+    location / {
+        proxy_pass http://127.0.0.1:8790;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}

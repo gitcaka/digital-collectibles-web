@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400">
+  <defs>
+    <linearGradient id="dawn" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5b2a63"/>
+      <stop offset="45%" stop-color="#9c4a5e"/>
+      <stop offset="100%" stop-color="#e0913f"/>
+    </linearGradient>
+    <linearGradient id="coin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff3c9"/>
+      <stop offset="100%" stop-color="#e8b23f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="400" fill="url(#dawn)"/>
+
+  <circle cx="770" cy="96" r="122" fill="#ffd88a" opacity="0.22"/>
+  <circle cx="770" cy="96" r="78" fill="#ffe6ad" opacity="0.3"/>
+
+  <g opacity="0.35" fill="#ffe1a8">
+    <circle cx="120" cy="330" r="3"/><circle cx="210" cy="362" r="2.2"/>
+    <circle cx="300" cy="336" r="2.6"/><circle cx="392" cy="368" r="2"/>
+    <circle cx="486" cy="330" r="3"/><circle cx="580" cy="364" r="2.3"/>
+    <circle cx="676" cy="338" r="2.7"/><circle cx="764" cy="366" r="2"/>
+  </g>
+
+  <g>
+    <circle cx="656" cy="238" r="58" fill="url(#coin)"/>
+    <circle cx="656" cy="238" r="46" fill="none" stroke="#c08a24" stroke-width="2" opacity="0.6"/>
+    <text x="656" y="256" text-anchor="middle" font-family="'Noto Sans SC','Microsoft YaHei',sans-serif" font-size="44" font-weight="700" fill="#8a5c14">积</text>
+
+    <circle cx="756" cy="288" r="42" fill="url(#coin)" opacity="0.92"/>
+    <circle cx="756" cy="288" r="33" fill="none" stroke="#c08a24" stroke-width="2" opacity="0.55"/>
+    <text x="756" y="302" text-anchor="middle" font-family="'Noto Sans SC','Microsoft YaHei',sans-serif" font-size="32" font-weight="700" fill="#8a5c14">分</text>
+
+    <circle cx="592" cy="316" r="34" fill="url(#coin)" opacity="0.85"/>
+    <circle cx="592" cy="316" r="26" fill="none" stroke="#c08a24" stroke-width="2" opacity="0.5"/>
+    <text x="592" y="328" text-anchor="middle" font-family="'Noto Sans SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700" fill="#8a5c14">×2</text>
+  </g>
+
+  <g fill="#fff4d6" opacity="0.75">
+    <path d="M392 120 l7 18 18 7 -18 7 -7 18 -7 -18 -18 -7 18 -7 z"/>
+    <path d="M300 196 l5 13 13 5 -13 5 -5 13 -5 -13 -13 -5 13 -5 z"/>
+    <path d="M456 232 l4 11 11 4 -11 4 -4 11 -4 -11 -11 -4 11 -4 z"/>
+  </g>
+
+  <text x="72" y="132" font-family="'Noto Sans SC','Microsoft YaHei',sans-serif" font-size="20" fill="#ffe6b8" letter-spacing="6" opacity="0.92">DAILY CHECK-IN</text>
+  <text x="72" y="200" font-family="'Noto Sans SC','Microsoft YaHei',sans-serif" font-size="62" font-weight="700" fill="#fffaf0">签到七日</text>
+  <text x="72" y="256" font-family="'Noto Sans SC','Microsoft YaHei',sans-serif" font-size="30" fill="#ffe6b8" opacity="0.95">连续签到 · 积分翻倍不停</text>
+
+  <g>
+    <rect x="72" y="292" width="196" height="52" rx="26" fill="#ffd98a"/>
+    <text x="170" y="325" text-anchor="middle" font-family="'Noto Sans SC','Microsoft YaHei',sans-serif" font-size="22" font-weight="600" fill="#5a3410">去签到</text>
+  </g>
+</svg>

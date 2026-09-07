@@ -1,0 +1,19 @@
+[Unit]
+Description=Digital Collectibles PHP API
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/digital-collectibles/current
+Environment=COLLECTIBLES_DB_PATH=/var/lib/digital-collectibles/collectibles.sqlite
+Environment=COLLECTIBLES_MEDIA_DIR=/var/lib/digital-collectibles/media/collections
+ExecStart=/usr/bin/php8.3 -d upload_max_filesize=16M -d post_max_size=20M -S 127.0.0.1:8789 -t php-backend php-backend/router.php
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

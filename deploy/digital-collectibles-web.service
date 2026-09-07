@@ -1,0 +1,19 @@
+[Unit]
+Description=Digital Collectibles Web (vinext standalone SSR)
+After=network.target digital-collectibles-php.service
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/digital-collectibles/current/dist/standalone
+Environment=HOST=127.0.0.1
+Environment=PORT=8790
+ExecStart=/opt/node22/bin/node server.js
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
